@@ -11,43 +11,53 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/course_subscription_db';
 
+
+
 app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://learn-app.pages.dev"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: true,
   credentials: true
 }));
+
+
 
 app.use("/uploads", express.static("uploads"));
 
 app.use(express.json());
 
 
-// Logging
+
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
   next();
 });
 
+
+
 app.use('/api/auth', authRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/subscriptions', subscriptionRoutes);
 
+
+// Health
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+
+// 404
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
+
+// Error
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Internal server error' });
 });
 
+
+// DB
 mongoose
   .connect(MONGO_URI)
   .then(() => {
