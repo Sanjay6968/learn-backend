@@ -12,7 +12,16 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/course_subscription_db';
 
 
-app.use(cors());
+const cors = require("cors");
+
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://learn-app.pages.dev"
+  ],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.use((req, res, next) => {
