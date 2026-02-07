@@ -58,7 +58,7 @@ const COURSES = [
     title: 'Machine Learning Basics',
     description: 'Intro to ML, neural networks and AI models.',
     price: 59.99,
-    image: '/images/Machine_Learning.jpeg',
+    image: '/images/Machine_Learning.jpg',
     category: 'AI / ML',
     instructor: 'Rachel Adams',
     duration: '6 hours',
