@@ -16,9 +16,9 @@ const USERS = [
 const COURSES = [
   {
     title: 'Intro to Web Development',
-    description: 'A comprehensive beginner-friendly course covering HTML, CSS, and JavaScript fundamentals.',
+    description: 'Learn HTML, CSS, and JavaScript fundamentals.',
     price: 0,
-    image: 'https://picsum.photos/seed/webdev/600/400',
+    image: '/images/web.jpg',
     category: 'Web Development',
     instructor: 'Sarah Chen',
     duration: '4 hours',
@@ -26,9 +26,9 @@ const COURSES = [
   },
   {
     title: 'Advanced React Patterns',
-    description: 'Master advanced React techniques including Context API, custom hooks, performance optimisation.',
+    description: 'Master advanced React techniques and performance optimization.',
     price: 49.99,
-    image: 'https://picsum.photos/seed/react/600/400',
+    image: '/images/react.jpg',
     category: 'Frontend',
     instructor: 'James Liu',
     duration: '6 hours',
@@ -36,9 +36,9 @@ const COURSES = [
   },
   {
     title: 'Python for Data Science',
-    description: 'Dive into Python libraries like Pandas, NumPy, and Matplotlib.',
+    description: 'Pandas, NumPy, Matplotlib and ML basics.',
     price: 39.99,
-    image: 'https://picsum.photos/seed/python/600/400',
+    image: '/images/python.jpg',
     category: 'Data Science',
     instructor: 'Emily Park',
     duration: '5 hours',
@@ -46,39 +46,19 @@ const COURSES = [
   },
   {
     title: 'Node.js & Express Masterclass',
-    description: 'Build scalable REST APIs using Node.js and Express.',
+    description: 'Build scalable REST APIs using Node.js.',
     price: 44.99,
-    image: 'https://picsum.photos/seed/nodejs/600/400',
+    image: '/images/nodejs.jpg',
     category: 'Backend',
     instructor: 'Michael Torres',
     duration: '7 hours',
     level: 'Intermediate',
   },
   {
-    title: 'CSS Mastery & Tailwind',
-    description: 'Master flexbox, grid, animations, and Tailwind CSS.',
-    price: 0,
-    image: 'https://picsum.photos/seed/css/600/400',
-    category: 'Frontend',
-    instructor: 'Lisa Wong',
-    duration: '3 hours',
-    level: 'Beginner',
-  },
-  {
-    title: 'Cloud & DevOps Fundamentals',
-    description: 'Understand cloud computing, CI/CD pipelines, Docker, and Kubernetes.',
-    price: 54.99,
-    image: 'https://picsum.photos/seed/cloud/600/400',
-    category: 'DevOps',
-    instructor: 'David Kim',
-    duration: '8 hours',
-    level: 'Intermediate',
-  },
-  {
     title: 'Machine Learning Basics',
-    description: 'Introduction to ML: supervised learning, neural networks, and scikit-learn.',
+    description: 'Intro to ML, neural networks and AI models.',
     price: 59.99,
-    image: 'https://picsum.photos/seed/ml/600/400',
+    image: '/images/Machine_Learning.jpeg',
     category: 'AI / ML',
     instructor: 'Rachel Adams',
     duration: '6 hours',
@@ -90,7 +70,7 @@ async function seed() {
   try {
     await mongoose.connect(MONGO_URI);
 
-    console.log("Connected to MongoDB");
+    console.log("MongoDB connected");
 
     await User.deleteMany({});
     await Course.deleteMany({});
